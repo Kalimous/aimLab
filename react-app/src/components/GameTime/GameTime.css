@@ -1,0 +1,11 @@
+.time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.timeText {
+    margin-left: 20px;
+}

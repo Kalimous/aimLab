@@ -1,0 +1,11 @@
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.scoreText {
+    margin-left: 20px;
+}
