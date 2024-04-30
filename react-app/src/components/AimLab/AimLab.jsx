@@ -5,7 +5,7 @@ import Finish from "../Finish/Finish";
 import scoreSound from "../../assets/scoreSound.mp3";
 
 export default function AimLab() {
-  const [gameTime, setGameTime] = useState(10);
+  const [gameTime, setGameTime] = useState(3);
   const [gameScore, setGameScore] = useState(0);
   const [gameFinish, setGameFinish] = useState(false);
 

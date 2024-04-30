@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./Finish.css";
 import scoreSound from "../../assets/scoreSound.mp3";
+import { Button } from "@mui/material";
 
 export default function Finish({ score }) {
   const [startScore, setStartScore] = useState(score - 4500);
@@ -40,7 +41,15 @@ export default function Finish({ score }) {
       ></audio>
 
       <h1 className="highScore"></h1>
-      <h1 className="finishScoreText">{startScore}</h1>
+      <h1 className="finishScoreText draggable">{startScore}</h1>
+      <Button
+        variant="contained"
+        color="error"
+        size="large"
+        onClick={() => location.reload()}
+      >
+        Regame
+      </Button>
     </div>
   );
 }

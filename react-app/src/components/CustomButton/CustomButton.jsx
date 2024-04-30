@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 import "./CustomButton.css";
-import { useEffect } from "react";
-import clickSound from "../../assets/buttonClickSound.mp3";
+import Setting from "../SettingButton/SettingButton";
 
 export default function CustomButton({ handleClick, text }) {
   const classname = (text) => {
@@ -16,6 +15,7 @@ export default function CustomButton({ handleClick, text }) {
 
   return (
     <div className="buttonContainer">
+      <Setting />
       <Button
         variant="contained"
         className={classname()}

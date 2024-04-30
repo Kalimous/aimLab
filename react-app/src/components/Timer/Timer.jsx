@@ -31,6 +31,7 @@ export default function Timer() {
   function playSound() {
     audioRef.current.play();
   }
+
   return (
     <>
       <audio
@@ -42,7 +43,7 @@ export default function Timer() {
 
       {!offTimer ? (
         <div className="timeContainer">
-          <h1>{time}</h1>
+          <h1 className="draggable">{time}</h1>
         </div>
       ) : (
         <AimLab />
