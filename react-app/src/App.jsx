@@ -1,9 +1,20 @@
 import "./App.css";
-import Game from "./components/Game/Game";
-import RandomBall from "./components/RandomBall/RandomBall";
+import CustomButton from "./components/CustomButton/CustomButton";
+import { useState } from "react";
+import Timer from "./components/Timer/Timer";
 
 function App() {
-  return <Game />;
+  const [clicked, setClicked] = useState(false);
+
+  function handleClick() {
+    setClicked(true);
+  }
+
+  return !clicked ? (
+    <CustomButton text="Start" handleClick={handleClick} />
+  ) : (
+    <Timer />
+  );
 }
 
 export default App;

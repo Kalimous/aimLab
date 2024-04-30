@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import "./Timer.css";
+import AimLab from "../AimLab/AimLab";
 
-export default function Timer({ startGame }) {
+export default function Timer() {
   const [time, setTime] = useState(3);
+  const [offTimer, setOffTimer] = useState(false);
 
   useEffect(() => {
     let timerId;
@@ -12,7 +14,7 @@ export default function Timer({ startGame }) {
       }, 1000);
     } else if (time === 0) {
       clearTimeout(timerId);
-      startGame();
+      setOffTimer(true);
     }
 
     return () => {
@@ -20,9 +22,11 @@ export default function Timer({ startGame }) {
     };
   }, [time]);
 
-  return (
+  return !offTimer ? (
     <div className="timeContainer">
       <h1>{time}</h1>
     </div>
+  ) : (
+    <AimLab />
   );
 }

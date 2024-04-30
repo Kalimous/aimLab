@@ -9,13 +9,15 @@ export default function CustomButton({ handleClick, text }) {
   };
 
   return (
-    <Button
-      variant="contained"
-      className={classname()}
-      onClick={handleClick}
-      size="large"
-    >
-      {text}
-    </Button>
+    <div className="buttonContainer">
+      <Button
+        variant="contained"
+        className={classname()}
+        onClick={handleClick}
+        size="large"
+      >
+        {text}
+      </Button>
+    </div>
   );
 }
