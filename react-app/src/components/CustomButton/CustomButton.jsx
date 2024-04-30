@@ -1,5 +1,7 @@
 import { Button } from "@mui/material";
 import "./CustomButton.css";
+import { useEffect } from "react";
+import clickSound from "../../assets/buttonClickSound.mp3";
 
 export default function CustomButton({ handleClick, text }) {
   const classname = (text) => {
@@ -8,12 +10,16 @@ export default function CustomButton({ handleClick, text }) {
     else if ("Regame") return "regameButton";
   };
 
+  function clickedButton() {
+    handleClick();
+  }
+
   return (
     <div className="buttonContainer">
       <Button
         variant="contained"
         className={classname()}
-        onClick={handleClick}
+        onClick={clickedButton}
         size="large"
       >
         {text}

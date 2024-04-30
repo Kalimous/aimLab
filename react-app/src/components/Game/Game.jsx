@@ -1,10 +1,11 @@
 import Circle from "../Circle/Circle";
 import popSound from "../../assets/popSound.mp3";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Info from "../Info/Info";
 
 export default function Game({ gameScore, gameTime, handleScore, handleTime }) {
-  const audio = new Audio(popSound);
+  const audioRef = useRef(null);
+
   const [positions, setPositions] = useState([
     getRandomPosition(),
     getRandomPosition(),
@@ -36,8 +37,8 @@ export default function Game({ gameScore, gameTime, handleScore, handleTime }) {
   }
 
   function handleCircleClick(idx) {
-    audio.play();
     handleScore();
+    playSound();
     setPositions((prevPositions) => {
       const updatedPositions = [...prevPositions];
       updatedPositions[idx] = getRandomPosition();
@@ -45,8 +46,19 @@ export default function Game({ gameScore, gameTime, handleScore, handleTime }) {
     });
   }
 
+  function playSound() {
+    audioRef.current.play();
+  }
+
   return (
     <div className="gameContainer">
+      <audio
+        src={popSound}
+        preload="auto"
+        ref={audioRef}
+        style={{ display: "none" }}
+      ></audio>
+
       <Info gameScore={gameScore} gameTime={gameTime} />
       {positions.map((position, idx) => (
         <Circle
