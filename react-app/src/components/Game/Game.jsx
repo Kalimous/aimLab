@@ -29,11 +29,11 @@ export default function Game({ gameScore, gameTime, handleScore, handleTime }) {
   }, [gameTime]);
 
   function random(max) {
-    return Math.floor(Math.random() * max) + 10 + "%";
+    return Math.floor(Math.random() * max) + 20 + "%";
   }
 
   function getRandomPosition() {
-    return { top: random(70), left: random(70) };
+    return { top: random(50), left: random(50) };
   }
 
   function handleCircleClick(idx) {

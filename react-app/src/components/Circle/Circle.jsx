@@ -5,7 +5,7 @@ export default function Circle({ position, handleClick, size }) {
   return (
     <div
       className="circle"
-      onClick={handleClick}
+      onMouseDown={handleClick}
       style={{
         top: position.top,
         left: position.left,
