@@ -1,12 +1,15 @@
 .circle {
     cursor: pointer;
-
     position: absolute;
     border-radius: 50px;
     background-color: cadetblue;
 }
 
 .circle:hover {
+    background-color: slateblue;
+}
+
+.circle:focus {
     background-color: slateblue;
 }
 

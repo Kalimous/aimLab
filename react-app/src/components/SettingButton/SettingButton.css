@@ -1,0 +1,20 @@
+.settingCircle {
+    background-color: cadetblue;
+    border-radius: 50px;
+}
+
+.settingGameTime {
+    margin-top: 50px;
+}
+
+.closeBtn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 1%;
+    right: 1%;
+    border-radius: 10px;
+    background-color: crimson;
+    color: white;
+    cursor: pointer;
+}

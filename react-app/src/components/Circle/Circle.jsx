@@ -1,7 +1,9 @@
 import "./Circle.css";
-import { useState } from "react";
+import { useCircleStore } from "../../Store/store";
 
-export default function Circle({ position, handleClick, size }) {
+export default function Circle({ position, handleClick }) {
+  const { size } = useCircleStore();
+
   return (
     <div
       className="circle"

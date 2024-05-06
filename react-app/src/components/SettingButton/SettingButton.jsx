@@ -1,18 +1,20 @@
 import settingImg from "../../assets/settingGear.png";
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import CustomSlider from "../CustomSlider/CustomSlider";
-import Circle from "../Circle/Circle";
 import { useState } from "react";
+import "./SettingButton.css";
+import { Button } from "@mui/material";
+import { useGameTimeStore } from "../../Store/store";
 
 export default function Setting() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [sliderValue, setSliderValue] = useState(50);
+  const { time, increase, decrease } = useGameTimeStore();
 
   const style = {
     position: "absolute",
@@ -22,8 +24,7 @@ export default function Setting() {
     width: 600,
     height: 600,
     bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
+    borderRadius: "20px",
     p: 4,
   };
 
@@ -56,16 +57,24 @@ export default function Setting() {
           <Typography id="modal-modal-title" variant="h3" component="h2">
             Setting
           </Typography>
-          <CustomSlider handleSlider={handleSlider} />
-          <div
-            className="circle"
-            style={{
-              borderRadius: "50px",
-              width: sliderValue,
-              height: sliderValue,
-            }}
-          ></div>
-          
+          <button className="closeBtn" onClick={handleClose}>
+            X
+          </button>
+          <div className="changeCircleSize" style={{ height: "150px" }}>
+            <CustomSlider handleSlider={handleSlider} />
+            <div
+              className="settingCircle"
+              style={{
+                width: sliderValue,
+                height: sliderValue,
+              }}
+            ></div>
+          </div>
+          <div className="settingGameTime">
+            <h3>GameTime</h3>
+            <Button onClick={increase}>⬆️</Button> {time}
+            <Button onClick={decrease}>⬇️</Button>
+          </div>
         </Box>
       </Modal>
     </div>

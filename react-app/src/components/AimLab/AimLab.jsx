@@ -2,10 +2,11 @@ import "./AimLab.css";
 import { useState, useEffect } from "react";
 import Game from "../Game/Game";
 import Finish from "../Finish/Finish";
-import scoreSound from "../../assets/scoreSound.mp3";
+import { useGameTimeStore } from "../../Store/store";
 
 export default function AimLab() {
-  const [gameTime, setGameTime] = useState(60);
+  const { time } = useGameTimeStore();
+  const [gameTime, setGameTime] = useState(time);
   const [gameScore, setGameScore] = useState(0);
   const [gameFinish, setGameFinish] = useState(false);
 

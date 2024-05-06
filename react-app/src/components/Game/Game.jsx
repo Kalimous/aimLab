@@ -63,7 +63,6 @@ export default function Game({ gameScore, gameTime, handleScore, handleTime }) {
       {positions.map((position, idx) => (
         <Circle
           key={idx}
-          size={50}
           position={position}
           handleClick={() => handleCircleClick(idx)}
         />

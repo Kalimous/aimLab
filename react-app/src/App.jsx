@@ -3,7 +3,6 @@ import CustomButton from "./components/CustomButton/CustomButton";
 import { useState, useRef } from "react";
 import Timer from "./components/Timer/Timer";
 import buttonClickSound from "../src/assets/buttonClickSound.mp3";
-import Setting from "./components/SettingButton/SettingButton";
 
 function App() {
   const [clicked, setClicked] = useState(false);
